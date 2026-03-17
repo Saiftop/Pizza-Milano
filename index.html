@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Milano | بيتزا ميلانو</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #e63946;
+            --secondary: #f4a261;
+            --dark: #1d1d1d;
+            --light: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background-color: #111;
+            padding: 10px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .logo span { 
+            color: var(--light); 
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            height: calc(100vh - 55px);
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .cta-btn {
+            padding: 12px 35px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.3s, background 0.3s;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            background-color: #c1121f;
+            transform: scale(1.05);
+        }
+
+        .features {
+            padding: 60px 20px;
+            background-color: #242424;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .feature-box {
+            max-width: 280px;
+            padding: 25px;
+            background: #1d1d1d;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .feature-box:hover {
+            transform: translateY(-8px);
+        }
+
+        .feature-box i {
+            font-size: 35px;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .feature-box h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .feature-box p {
+            font-size: 0.95rem;
+        }
+
+        .menu-section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 40px;
+        }
+
+        .menu-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .menu-img {
+            max-width: 45%;
+            min-width: 300px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            transition: transform 0.4s ease;
+            cursor: pointer;
+        }
+
+        .menu-img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 30px rgba(230, 57, 70, 0.2);
+        }
+
+        .branches-section {
+            padding: 60px 20px;
+            background-color: #242424;
+        }
+
+        .branches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .branch-card {
+            background: #1d1d1d;
+            padding: 25px;
+            border-radius: 12px;
+            border-right: 4px solid var(--primary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+
+        .branch-card:hover {
+            background: #2a2a2a;
+        }
+
+        .branch-card h3 {
+            color: var(--secondary);
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .branch-card p {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .contact-phones a {
+            display: block;
+            color: var(--light);
+            text-decoration: none;
+            margin-bottom: 8px;
+            background: rgba(230, 57, 70, 0.1);
+            padding: 8px;
+            border-radius: 6px;
+            transition: 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .contact-phones a:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .contact-phones a i {
+            margin-left: 8px;
+        }
+
+        footer {
+            background-color: #111;
+            text-align: center;
+            padding: 25px 20px;
+        }
+
+        .dev-credit {
+            font-size: 11px;
+            color: #666;
+            margin-top: 15px;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            header { 
+                padding: 15px 20px; 
+                flex-direction: column; 
+                gap: 10px; 
+            }
+            .hero h1 { font-size: 2.2rem; }
+            .menu-img { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Pizza <span>Milano</span></div>
+        <nav>
+            <ul>
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#menu">المنيو</a></li>
+                <li><a href="#branches">فروعنا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>بيتزا ميلانو.. أصل الطعم الإيطالي</h1>
+        <p>اروق طعم في مصر. جرب أحلى بيتزا في المنيا وسمالوط دلوقتي!</p>
+        <a href="#menu" class="cta-btn">اطلب دلوقتي</a>
+    </section>
+
+    <section class="features">
+        <div class="feature-box">
+            <i class="fas fa-fire"></i>
+            <h3>فرن على أعلى مستوى</h3>
+            <p>تسوية مظبوطة بتطلع البيتزا مقرمشة من برة وطرية من جوة.</p>
+        </div>
+        <div class="feature-box">
+            <i class="fas fa-cheese"></i>
+            <h3>مكونات فريش 100%</h3>
+            <p>بنختار أحسن أنواع الجبنة والخضار واللحوم عشان نضمنلك جودة ملهاش مثيل.</p>
+        </div>
+        <div class="feature-box">
+            <i class="fas fa-motorcycle"></i>
+            <h3>توصيل طيارة</h3>
+            <p>البيتزا هتوصلك سخنة نار وفي أسرع وقت لأي مكان في المنيا وسمالوط.</p>
+        </div>
+    </section>
+
+    <section class="menu-section" id="menu">
+        <h2 class="section-title">منيو ميلانو.. اختار اللي يظبط مزاجك</h2>
+        <div class="menu-gallery">
+            <img src="https://l.top4top.io/p_37282hx791.jpg" alt="Menu Page 1" class="menu-img">
+            <img src="https://k.top4top.io/p_3728x6h8c1.jpg" alt="Menu Page 2" class="menu-img">
+        </div>
+    </section>
+
+    <section class="branches-section" id="branches">
+        <h2 class="section-title" style="text-align:center; color:white;">فروعنا دايماً قريبة منك</h2>
+        <div class="branches-grid">
+            
+            <div class="branch-card">
+                <h3><i class="fas fa-map-marker-alt" style="color: var(--primary);"></i> الفرع الأول (المنيا)</h3>
+                <p>شلبي – ميدان آداب</p>
+                <div class="contact-phones">
+                    <a href="tel:01093669270"><i class="fas fa-phone-alt"></i> 01093669270</a>
+                    <a href="tel:01118284544"><i class="fas fa-phone-alt"></i> 01118284544</a>
+                </div>
+            </div>
+
+            <div class="branch-card">
+                <h3><i class="fas fa-map-marker-alt" style="color: var(--primary);"></i> الفرع الثاني (سمالوط)</h3>
+                <p>بجوار ألبان السماح - أمام المعهد الديني</p>
+                <div class="contact-phones">
+                    <a href="tel:01125763008"><i class="fas fa-phone-alt"></i> 01125763008</a>
+                    <a href="tel:01050781850"><i class="fas fa-phone-alt"></i> 01050781850</a>
+                </div>
+            </div>
+
+            <div class="branch-card">
+                <h3><i class="fas fa-map-marker-alt" style="color: var(--primary);"></i> الفرع الثالث (سمالوط)</h3>
+                <p>شارع جامع الشريف - متفرع من شارع موقف المنيا</p>
+                <div class="contact-phones">
+                    <a href="tel:01033911831"><i class="fas fa-phone-alt"></i> 01033911831</a>
+                    <a href="tel:01120109152"><i class="fas fa-phone-alt"></i> 01120109152</a>
+                </div>
+            </div>
+
+            <div class="branch-card">
+                <h3><i class="fas fa-map-marker-alt" style="color: var(--primary);"></i> الفرع الرابع (المنيا)</h3>
+                <p>دماريس - موقف دماريس</p>
+                <div class="contact-phones">
+                    <a href="tel:01505344142"><i class="fas fa-phone-alt"></i> 01505344142</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © بيتزا ميلانو 2026</p>
+        <p class="dev-credit">تمت برمجة هذا الموقع By Saif Hassan</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
